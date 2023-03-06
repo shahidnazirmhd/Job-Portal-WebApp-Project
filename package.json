@@ -1,0 +1,19 @@
+{
+  "name": "job-portal-webapp-project",
+  "version": "1.0.0",
+  "description": "A job portal website named 'fouz staffing' in responsive design",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Shahid Nazir Z",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
