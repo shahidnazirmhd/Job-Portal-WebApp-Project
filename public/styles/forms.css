@@ -1,0 +1,17 @@
+.form-control {
+    display: block; margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--color-blue-600);
+}
+
+input, textarea {
+    font: inherit;
+    padding: var(--space-2);
+    border-radius: var(--border-radius-small);
+    border: none;
+    width: 90%;
+}

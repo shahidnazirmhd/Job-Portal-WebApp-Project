@@ -13,15 +13,16 @@ html {
   --color-gray-600: rgb(32, 29, 26);
   --color-gray-700: rgb(31, 26, 22);
 
-  --color-blue-40:#E0FFFF;
+  --color-blue-20: #eaf5fc;
+  --color-blue-30: #dff2ff;
+  --color-blue-40: #a6dbfb;
   --color-blue-50: #87CEFA;
   --color-blue-100: #87CEEB;
   --color-blue-200: #B0C4DE;
   --color-blue-300: #4682B4;
   --color-blue-400: #4169E1;
   --color-blue-500: #0000FF;
-  --color-blue-600: #0000CD;
-  --color-blue-700: #00008B;
+  --color-blue-600:  #00356B;
 
   --color-primary-50: rgb(253, 224, 200);
   --color-primary-100: rgb(253, 214, 183);
@@ -50,7 +51,41 @@ html {
 }
 
 body {
-    background-color: var(--color-blue-40);
+    background-color: var(--color-blue-30);
     color: var(--color-gray-600);
     margin: 0;
+}
+
+main {
+    width: 90%;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-blue-500);
+}
+
+.btn {
+    cursor: pointer;
+    font: inherit;
+    padding: var(--space-2) var(--space-6);
+    background-color: var(--color-blue-500);
+    color: var(--color-blue-30);
+    border: 1px solid var(--color-blue-500);
+    border-radius: var(--border-radius-small);
+}
+
+.btn:hover,
+.btn:active {
+    background-color: var(--color-blue-400);
+    border-color: var(--color-blue-400);
+    color: var(--color-primary-500-contrast);
 }

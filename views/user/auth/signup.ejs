@@ -1,37 +1,42 @@
-<%- include('../includes/head', {pageTitle: 'SignUp'}) %>
+<%- include('../../shared/includes/head', {pageTitle: 'SignUp'}) %>
 <link rel="stylesheet" href="/styles/forms.css">
 <link rel="stylesheet" href="/styles/auth.css">
 </head>
 <body>
-    <%- include('../includes/header') %>
+    <%- include('../../shared/includes/header') %>
     <main>
         <h1>Create New Account</h1>
-        <form action="" method="">
-              <p class="form-control">
+        <form action="/signup" method="post">
+          <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
+              <div class="form-control">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="fullname"  required>
-              </p>
-              <p class="form-control">
+              </div>
+              <div class="form-control">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email"  required>
-              </p>
-              <p class="form-control">
+              </div>
+              <div class="form-control">
                 <label for="confirm-email">Confirm Email</label>
                 <input type="email" id="confirm-email" name="confirm-email"  required>
-              </p>
-              <p class="form-control">
+              </div>
+              <div class="form-control">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" minlength="6" required>
-              </p>
-              <p class="form-control">
+              </div>
+              <div class="form-control">
+                <label for="mobileno">Mobile No</label>
+                <input type="tel" id="mobileno" name="mobileno" required>
+              </div>
+              <div class="form-control">
                 <label for="city">City</label>
                 <input type="text" id="city" name="city" required>
-              </p>
-              <button class="btn">Create user</button>
+              </div>
+              <button class="btn">Create Account</button>
+              <div class="form-control" id="switch-form">
+                  <a href="/login">Login instead</a>
+                </div>
         </form>
-        <p id="switch-form">
-            <a href="/login">Login instead</a>
-          </p>
     </main>
     
-<%- include('../includes/footer') %>
+<%- include('../../shared/includes/footer') %>
