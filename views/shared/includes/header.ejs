@@ -1,7 +1,22 @@
-<header>
-    <div><a href="/">Fouz</a></div>
+<header id="main-header">
+    <div id="logo"><a href="/">Fouz</a></div>
     <nav>
         <ul>
+            <% if (!locals.isAdmin) { %>
+            <li><a href="/">Jobs</a></li>
+            <li><a href="/recruiters">Recruiters</a></li>
+            <% } %>
+            <% if (locals.isAuth && !locals.isAdmin) { %>
+                <li><a href="/status">Application Status</a></li>
+            <% } %>
+            <% if (locals.isAdmin) { %>
+                <li><a href="/admin/jobs">Manage Jobs</a></li>
+                <li><a href="/admin/status">Manage Applications</a></li>
+            <% } %>
+            <% if (!locals.isAuth) { %>
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/login">Login</a></li>
+            <% } %>
             <% if (locals.isAuth) { %>
                 <li>
                     <form action="/logout" method="post">

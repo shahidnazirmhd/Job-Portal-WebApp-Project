@@ -1,21 +1,51 @@
 const User = require('../models/user');
 const authUtil = require('../util/authentication');
 const validation = require('../util/validation');
+const sessionFlash = require('../util/session-flash');
 
 function getSignUp (req, res) {
-    res.render('user/auth/signup');
+    let sessionData = sessionFlash.getSessionErrorData(req);
+    if(!sessionData) {
+        sessionData = {
+            email: '',
+            confirmEmail: '',
+            password: '',
+            name: '',
+            mobileNo: '',
+            city: ''
+        };
+    }
+    res.render('user/auth/signup', {inputData: sessionData});
 }
 
 async function postSignUp (req, res, next) {
-   if (!validation.userDetailsAreValid(req.body.email, req.body.password, req.body.fullname, req.body['confirm-email'], req.body.mobileno, req.body.city)) {
-    res.redirect('signup');
+    const enteredData = {
+        email: req.body.email,
+        confirmEmail: req.body['confirm-email'],
+        password: req.body.password,
+        name: req.body.fullname,
+        mobileNo: req.body.mobileno,
+        city: req.body.city
+    };
+   if (!validation.userDetailsAreValid(enteredData.email, enteredData.password, enteredData.name, enteredData.confirmEmail, enteredData.mobileNo, enteredData.city)) {
+    sessionFlash.flashErrorsToSession(req, {
+        errorMessage: 'please correct your data.',
+        ...enteredData
+    }, function () {
+        res.redirect('/signup');
+    });
     return;
    } 
-const user = new User(req.body.email, req.body.password, req.body.fullname, req.body.mobileno, req.body.city);
+const user = new User(enteredData.email, enteredData.password, enteredData.name, enteredData.mobileNo, enteredData.city);
 try{
     const existAlready = await user.existsAlready();
     if (existAlready) {
-        res.redirect('signup');
+        sessionFlash.flashErrorsToSession(req, {
+            errorMessage: 'User exists already!',
+            ...enteredData
+        }, function () {
+            res.redirect('/signup');
+        });
         return;
     }
     
@@ -29,7 +59,14 @@ res.redirect('/login');
 }
 
 function getLogin (req, res) {
-    res.render('user/auth/login');
+    let sessionData = sessionFlash.getSessionErrorData(req);
+    if(!sessionData) {
+        sessionData = {
+            email: '',
+            password: ''
+        };
+    }
+    res.render('user/auth/login', {inputData: sessionData});
 }
 
 async function postLogin (req, res, next) {
@@ -41,16 +78,24 @@ async function postLogin (req, res, next) {
     next(error);
     return;
 }
-
+    const sessionErrorData = {
+        errorMessage: 'Enter correct credentials',
+            email: user.email,
+            password: user.password
+    };
     if (!existingUser) {
-        res.redirect('/login');
+        sessionFlash.flashErrorsToSession(req, sessionErrorData, function () {
+            res.redirect('/login');
+        });
         return;
     }
 
     const passwordIsCorrect = await user.hasPasswordMatch(existingUser.password);
 
     if (!passwordIsCorrect) {
-        res.redirect('/login');
+        sessionFlash.flashErrorsToSession(req, sessionErrorData, function () {
+            res.redirect('/login');
+        });
         return;
     }
 
