@@ -89,6 +89,16 @@ a {
     border-color: var(--color-blue-400);
     color: var(--color-primary-500-contrast);
 }
+.btn-alt {
+    background-color: transparent;
+    color: var(--color-blue-500);
+}
+
+.btn-alt:hover,
+.btn-alt:active {
+    background-color: var(--color-blue-40);
+    color: var(--color-primary-500-contrast);
+}
 
 .alert {
     max-width: 25rem;
