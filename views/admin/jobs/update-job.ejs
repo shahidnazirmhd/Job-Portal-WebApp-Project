@@ -1,0 +1,11 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Update Job'}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main>
+        <h1>Update Job</h1>
+        <%- include('includes/job-form', {submitPath: '/admin/jobs/'+job.id, job: job, imageRequired: false}) %>
+    </main>
+<%- include('../../shared/includes/footer') %>

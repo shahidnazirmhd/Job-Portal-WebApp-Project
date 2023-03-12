@@ -19,6 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
+app.use('/jobs/assets', express.static('job-data'));
 app.use(express.urlencoded({ extended: false }));
 
 const sessionConfig = createSessionConfig();

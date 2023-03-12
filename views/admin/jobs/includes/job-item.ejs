@@ -1,0 +1,14 @@
+<article class="job-item">
+    <div class="job-main-content">
+        <img src="<%= job.imageUrl %>" alt="<%= job.title %>">
+        <div>
+            <h2><%= job.title %></h2>
+            <h3><%= job.companyname %></h3>
+            <h3><%= job.location %></h3>
+        </div>
+    </div>
+    <div class="job-actions">
+        <a class="btn btn-alt" href="/admin/jobs/<%= job.id %>">View & Edit</a>
+        <button class="btn btn-alt">Delete</button>
+    </div>
+</article>
