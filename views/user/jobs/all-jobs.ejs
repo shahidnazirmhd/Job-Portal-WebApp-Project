@@ -1,11 +1,17 @@
 <%- include('../../shared/includes/head', {pageTitle: 'Jobs'}) %>
+<link rel="stylesheet" href="/styles/jobs.css">
 </head>
 <body>
     <%- include('../../shared/includes/header') %>
     <main>
-        <h1>Get The Right Job</h1>
-        <h1>You Deserve</h1>
-        
+        <h1>Get The Right Job<br>You Deserve</h1>
+        <h2>All Jobs</h2>
+        <ul id="jobs-grid">
+        <% for (const job of jobs) { %>
+            <li>
+                <%- include('../../shared/includes/job-item', {job: job}) %>
+            </li>
+        <% } %>
+        </ul>
     </main>
-    
 <%- include('../../shared/includes/footer') %>

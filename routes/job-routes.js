@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/jobs', function (req, res) {
-    res.render('user/jobs/all-jobs');
-});
+const jobsController = require('../controllers/jobs-controller');
+
+router.get('/jobs', jobsController.getAllJobs);
+
+router.get('/jobs/:id', jobsController.getJobDetails);
 
 module.exports = router;

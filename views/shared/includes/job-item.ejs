@@ -8,7 +8,11 @@
         </div>
     </div>
     <div class="job-actions">
+      <% if (locals.isAdmin) { %>
         <a class="btn btn-alt" href="/admin/jobs/<%= job.id %>">View & Edit</a>
         <button class="btn btn-alt" data-jobid="<%= job.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+      <% } else { %>
+        <a class="btn btn-alt" href="/jobs/<%= job.id %>">View Details</a>     
+      <% } %>  
     </div>
 </article>

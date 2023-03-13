@@ -1,0 +1,23 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Jobs'}) %>
+<link rel="stylesheet" href="/styles/jobs.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main id="job-details">
+        <header>
+            <img src="<%= job.imageUrl %>" alt="<%= job.imageUrl %>">
+            <div id="job-info1">
+                <h1><%= job.title %></h1>
+                <h3><%= job.companyname %></h3>
+                <h3><%= job.location %></h3>
+            </div>
+            <div id="job-info2">
+                <p><%= job.experiance %></p>
+                <h3><%= job.jobtype %></h3>
+                <p><%= job.salary %></p>
+                <button>Save Job</button>
+            </div>
+        </header>
+        <p id="job-description"><%= job.description %></p>
+    </main>
+<%- include('../../shared/includes/footer') %>
