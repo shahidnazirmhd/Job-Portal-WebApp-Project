@@ -1,9 +1,6 @@
 const Job = require('../models/job');
 
 async function getJobs(req, res, next) {
-    if(!res.locals.isAdmin) {
-        return res.status(403).render("shared/403");
-    }
     try {
         const jobs = await Job.findAll();
         res.render('admin/jobs/all-jobs', {jobs: jobs});
@@ -61,7 +58,7 @@ async function deleteJob(req, res, next) {
     } catch (error) {
        return next(error);        
     }
-    res.redirect('/admin/jobs');
+    res.json({message: 'Job deleted!'});
 } 
 
 module.exports = {

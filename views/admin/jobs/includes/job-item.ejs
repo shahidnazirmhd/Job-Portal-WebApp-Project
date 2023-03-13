@@ -9,6 +9,6 @@
     </div>
     <div class="job-actions">
         <a class="btn btn-alt" href="/admin/jobs/<%= job.id %>">View & Edit</a>
-        <button class="btn btn-alt">Delete</button>
+        <button class="btn btn-alt" data-jobid="<%= job.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
     </div>
 </article>
