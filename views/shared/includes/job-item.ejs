@@ -4,9 +4,10 @@
         <div>
             <h2><%= job.title %></h2>
             <h3><%= job.companyname %></h3>
-            <h3><%= job.location %></h3>
+            <h3><i class="fa-solid fa-location-dot"></i> <%= job.location %></h3>
         </div>
-    </div>
+      </div>
+      <h3 id="worktype"><%= job.worktype %></h3>
     <div class="job-actions">
       <% if (locals.isAdmin) { %>
         <a class="btn btn-alt" href="/admin/jobs/<%= job.id %>">View & Edit</a>

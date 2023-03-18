@@ -96,8 +96,9 @@ a {
 
 .btn-alt:hover,
 .btn-alt:active {
-    background-color: var(--color-blue-40);
+    background-color: var(--color-blue-50);
     color: var(--color-primary-500-contrast);
+    font-weight: bold;
 }
 
 .alert {
@@ -119,3 +120,4 @@ a {
 .alert p {
     margin: var(--space-2) 0;
 }
+
