@@ -33,8 +33,8 @@ html {
   --color-primary-200-contrast: rgb(100, 46, 2);
   --color-primary-500-contrast: white;
 
-  --color-error-100: rgb(255, 192, 180);
-  --color-error-500: rgb(199, 51, 15);
+  --color-error-100: rgb(255, 203, 203);
+  --color-error-500: rgb(199, 15, 15);
 
   --color-primary-500-bg: rgb(63, 60, 58);
 
@@ -97,8 +97,8 @@ a {
 .btn-alt:hover,
 .btn-alt:active {
     background-color: var(--color-blue-50);
+    border-color: var(--color-primary-500-contrast);
     color: var(--color-primary-500-contrast);
-    font-weight: bold;
 }
 
 .alert {
@@ -121,3 +121,10 @@ a {
     margin: var(--space-2) 0;
 }
 
+.badge {
+    margin-left: var(--space-1);
+    padding: 0.15rem var(--space-2);
+    border-radius: 10rem;
+    background-color: var(--color-blue-400);
+    color: var(--color-primary-500-contrast);
+}

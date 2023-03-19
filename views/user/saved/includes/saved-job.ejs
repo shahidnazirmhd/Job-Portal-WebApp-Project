@@ -1,0 +1,17 @@
+<article class="saved-job">
+    <div class="saved-job-info1">
+        <img src="<%= job.imageUrl %>" alt="<%= job.title %>">
+        <h2><%= job.companyname %></h2>
+    </div>    
+        <div class="saved-job-info2">
+            <h1><%= job.title %></h1>
+            <h3><i class="fa-solid fa-location-dot"></i> <%= job.location %></h3>
+        </div>
+        <div class="saved-job-info3">
+            <h3><%= job.worktype %></h3>
+        </div>
+    <div class="job-actions">
+        <button class="btn btn-alt remove" data-jobid="<%= job.id %>" data-csrf="<%= locals.csrfToken %>">Remove</button>
+        <button class="btn" href="/jobs/<%= job.id %>">Apply</button>       
+    </div>
+</article>

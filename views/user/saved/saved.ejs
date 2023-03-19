@@ -1,0 +1,17 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Saved Jobs'}) %>
+<link rel="stylesheet" href="/styles/saved.css">
+<script src="/scripts/unsave-job.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main>
+        <h1>Jobs Saved By You</h1>
+        <ul id="saved-jobs">
+        <% for (const job of locals.save.jobDocs) { %>
+            <li>
+                <%- include('includes/saved-job', {job: job}) %>
+            </li>
+        <% } %>
+        </ul>
+    </main>
+<%- include('../../shared/includes/footer') %>

@@ -4,6 +4,7 @@
     <li><a href="/recruiters">Recruiters</a></li>
     <% } %>
     <% if (locals.isAuth && !locals.isAdmin) { %>
+        <li><a href="/save">Saved Jobs <span class="badge"><%= locals.save.jobDocs.length %></span></a></li>
         <li><a href="/status">Application Status</a></li>
     <% } %>
     <% if (locals.isAdmin) { %>
