@@ -9,6 +9,7 @@ class Save {
         for (let i = 0; i < this.jobDocs.length; i++) {
             if (this.jobDocs[i].id === job.id) {
                 isSaved = true;
+                this.jobDocs.splice(i, 1);
                 return;
             }
         }
@@ -24,6 +25,16 @@ class Save {
                 return;
             }
         }
+    }
+
+    isSaved(jobId) {
+        let isSaved = false;
+        for (let i = 0; i < this.jobDocs.length; i++) {
+            if (this.jobDocs[i].id === jobId) {
+                isSaved = true;
+            }
+        }
+        return isSaved;
     }
 
 }

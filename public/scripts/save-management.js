@@ -26,7 +26,11 @@ async function addToSaves() {
     const responseData = await response.json();
     const totalSaves = responseData.newTotalSaves;
     saveBadgeElement.textContent = totalSaves;
-    toggleIcon.classList.toggle('fa-solid');
+    if (toggleIcon.className == "fa-solid fa-bookmark") {
+        toggleIcon.className = "fa-regular fa-bookmark";
+      } else {
+        toggleIcon.className = "fa-solid fa-bookmark";
+      }
 }
 if (saveButtonElement) {
     saveButtonElement.addEventListener('click', addToSaves);

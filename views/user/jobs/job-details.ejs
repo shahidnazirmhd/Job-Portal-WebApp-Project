@@ -28,7 +28,7 @@
         </div>
         <div id="job-description">
             <% if (locals.isAuth) { %>
-                <button class="btn btn-alt save" data-jobid="<%= job.id %>" data-csrf="<%= locals.csrfToken %>"><i class="fa-regular fa-bookmark"></i> Save</button>        
+                <button class="btn btn-alt save" data-jobid="<%= job.id %>" data-csrf="<%= locals.csrfToken %>"><i class="fa-<% if (locals.save.isSaved(job.id)) { %>solid<% } else { %>regular<% } %> fa-bookmark"></i> Save</button>        
             <% } %>
             <h2><%= job.title %></h3>
             <p><%= job.description %></p>
