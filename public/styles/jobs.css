@@ -116,6 +116,18 @@
     padding: var(--space-1) var(--space-4);
     float: right;
   }
+  
+  #job-details  {
+    align-items: center;
+  }
+
+  #Login-Apply {
+    padding: var(--space-1) 0;
+    text-align: center;
+    color: var(--color-primary-500-contrast);
+    background-color: var(--color-blue-300);
+  }
+
 
   @media (min-width: 48rem) {
     #job-detail-card {

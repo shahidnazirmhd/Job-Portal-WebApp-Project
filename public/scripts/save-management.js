@@ -1,5 +1,5 @@
 const saveButtonElement = document.querySelector('#job-description .save');
-const saveBadgeElement = document.querySelector('.nav-items .badge');
+const saveBadgeElements = document.querySelectorAll('.nav-items .badge');
 const toggleIcon = document.querySelector('#job-description .save i');
 
 async function addToSaves() {
@@ -25,7 +25,10 @@ async function addToSaves() {
 
     const responseData = await response.json();
     const totalSaves = responseData.newTotalSaves;
-    saveBadgeElement.textContent = totalSaves;
+    
+    for (const saveBadgeElement of saveBadgeElements) {
+        saveBadgeElement.textContent = totalSaves;
+    }
     if (toggleIcon.className == "fa-solid fa-bookmark") {
         toggleIcon.className = "fa-regular fa-bookmark";
       } else {

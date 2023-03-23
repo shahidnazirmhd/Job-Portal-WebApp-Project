@@ -1,5 +1,5 @@
 const removeSavedJobButtonElements = document.querySelectorAll('.job-actions button.remove');
-const saveBadgeElement = document.querySelector('.nav-items .badge');
+const saveBadgeElements = document.querySelectorAll('.nav-items .badge');
 
 async function removeSavedJob(event) {
     const buttonElement = event.target;
@@ -16,7 +16,9 @@ async function removeSavedJob(event) {
     buttonElement.parentElement.parentElement.parentElement.remove();
     const responseData = await response.json();
     const totalSaves = responseData.newTotalSaves;
-    saveBadgeElement.textContent = totalSaves;
+    for (const saveBadgeElement of saveBadgeElements) {
+        saveBadgeElement.textContent = totalSaves;
+    }
 }
 
 for (const removeSavedJobButtonElement of removeSavedJobButtonElements) {
