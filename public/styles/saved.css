@@ -47,6 +47,10 @@
     gap: 3rem;
   }
 
+  .job-actions a{
+    text-align: center;
+  }
+
   
 
 @media (min-width: 48rem) {

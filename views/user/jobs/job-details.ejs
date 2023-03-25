@@ -1,4 +1,4 @@
-<%- include('../../shared/includes/head', {pageTitle: job.companyname+'|'+job.title}) %>
+<%- include('../../shared/includes/head', {pageTitle: job.companyname+' | '+job.title}) %>
 <link rel="stylesheet" href="/styles/jobs.css">
 <script src="/scripts/save-management.js" defer></script>
 </head>
@@ -34,7 +34,7 @@
             <p><%= job.description %></p>
             <p><%= job.summary %></p>
             <% if (locals.isAuth) { %>
-            <button class="btn">Apply</button>
+                    <a class="btn" href="/application/<%= job.id %>">Apply</a>
             <% } else { %>
                 <p id="Login-Apply">Login to Apply</p>
             <% } %>

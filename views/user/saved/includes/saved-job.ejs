@@ -12,6 +12,6 @@
         </div>
     <div class="job-actions">
         <button class="btn btn-alt remove" data-jobid="<%= job.id %>" data-csrf="<%= locals.csrfToken %>">Remove</button>
-        <button class="btn" href="/jobs/<%= job.id %>">Apply</button>       
+        <a class="btn" href="/application/<%= job.id %>">Apply</a>      
     </div>
 </article>

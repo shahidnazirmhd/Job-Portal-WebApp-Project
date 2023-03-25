@@ -1,12 +1,13 @@
 const Job = require('../models/job');
 
 async function getAllJobs(req, res, next) {
+    let jobs
     try {
-        const jobs = await Job.findAll();
-        res.render('user/jobs/all-jobs', {jobs: jobs});
+        jobs = await Job.findAll();
     } catch (error) {
         next(error);
     }
+    res.render('user/jobs/all-jobs', {jobs: jobs});
 }
 
 async function getJobDetails(req, res, next) {

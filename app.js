@@ -10,6 +10,7 @@ const jobRoutes = require('./routes/job-routes');
 const baseRoutes = require('./routes/base-routes');
 const adminRoutes = require('./routes/admin-routes');
 const saveRoutes = require('./routes/save-routes');
+const applicationRoutes = require('./routes/application-routes');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
@@ -41,6 +42,7 @@ app.use(userRoutes);
 app.use(jobRoutes);
 app.use(protectRoutesMiddleware);
 app.use('/save', saveRoutes);
+app.use(applicationRoutes);
 app.use('/admin', adminRoutes);
 
 app.use(errorHandlerMiddleware);
