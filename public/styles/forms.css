@@ -29,3 +29,9 @@ input, textarea {
     height: 3rem;
     object-fit: cover;
 }
+
+#action.form-control {
+    display: flex;
+	justify-content: space-between;
+    width: 90%;
+}

@@ -115,7 +115,6 @@ main {
 #mobile-menu .nav-items button:hover,
 #mobile-menu .nav-items a:active,
 #mobile-menu .nav-items button:active {
-    font-size: 1.75rem;
     color: var(--color-blue-600);
     background-color: var(--color-blue-40);
 }
@@ -152,8 +151,7 @@ main {
     .nav-items a:active,
     .nav-items button:hover,
     .nav-items button:active {
-        color: var(--color-blue-600);
+        color: var(--color-gray-700);
         background-color: var(--color-blue-40);
-        font-weight: bold;
     }
 }
