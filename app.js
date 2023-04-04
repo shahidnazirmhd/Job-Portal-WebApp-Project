@@ -42,7 +42,7 @@ app.use(userRoutes);
 app.use(jobRoutes);
 app.use(protectRoutesMiddleware);
 app.use('/save', saveRoutes);
-app.use(applicationRoutes);
+app.use('/application', applicationRoutes);
 app.use('/admin', adminRoutes);
 
 app.use(errorHandlerMiddleware);

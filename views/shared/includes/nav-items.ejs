@@ -5,7 +5,7 @@
     <% } %>
     <% if (locals.isAuth && !locals.isAdmin) { %>
         <li><a href="/save">Saved Jobs <span class="badge"><%= locals.save.jobDocs.length %></span></a></li>
-        <li><a href="/status">Application Status</a></li>
+        <li><a href="/application/status">Application Status</a></li>
     <% } %>
     <% if (locals.isAdmin) { %>
         <li><a href="/admin/jobs">Manage Jobs</a></li>
