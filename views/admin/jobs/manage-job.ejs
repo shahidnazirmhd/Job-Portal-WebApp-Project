@@ -1,0 +1,38 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Manage Job'}) %>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/styles/user-status.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main>
+        <h1>Admin Controls</h1>
+        <% for (const application of applications) { %>
+            <li>
+              <div class="job-item-wrapper">
+                <article class="job-item">
+                  <div class="job-main-content">
+                    <div class="job_title">
+                        <img src="<%= application.job.imageUrl %>" alt="">
+                          <h2><%= application.job.companyname %></h2>
+                          <h3><%= application.job.title %></h3>
+                          <h3><i class="fa-solid fa-location-dot"></i>&nbsp &nbsp<%= application.job.location %></h3>
+                      </div>
+                      <div class="job-actions">
+                        <form action="/admin/jobs/status/update/<%= application.applicationId %>" method="post">
+                        <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
+                        <select class="form-select" name="status">
+                            <option selected><%= application.status %></option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Accepted">Accepted</option>
+                          </select>
+                          <button type="submit" class="btn">Save</button>
+                        </form>
+                    </div>
+                    </div>
+                </article>
+            </div>
+            </li>
+        <% } %>
+    </main>
+<%- include('../../shared/includes/footer') %>

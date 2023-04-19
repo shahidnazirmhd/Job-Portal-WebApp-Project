@@ -1,9 +1,29 @@
 <%- include('../../shared/includes/head', {pageTitle: 'Application Status'}) %>
+<link rel="stylesheet" href="/styles/user-status.css">
 </head>
 <body>
     <%- include('../../shared/includes/header') %>
     <main>
         <h1>Application Status</h1>
+        <% for (const application of applications) { %>
+          <li>
+            <div class="job-item-wrapper">
+              <article class="job-item">
+                <div class="job-main-content">
+                  <div class="job_title">
+                      <img src="<%= application.job.imageUrl %>" alt="">
+                        <h2><%= application.job.companyname %></h2>
+                        <h3><%= application.job.title %></h3>
+                        <h3><i class="fa-solid fa-location-dot"></i>&nbsp &nbsp<%= application.job.location %></h3>
+                    </div>
+                    <div class="job-actions">
+                      <h5><%= application.status %></h5>
+                  </div>
+                  </div>
+              </article>
+          </div>
+          </li>
+      <% } %>
         
     </main>
 <%- include('../../shared/includes/footer') %>

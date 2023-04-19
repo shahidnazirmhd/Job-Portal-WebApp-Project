@@ -1,4 +1,34 @@
 const Job = require('../models/job');
+const Application = require('../models/application');
+
+async function getJobStatus(req, res, next) {
+    try {
+        const applications = await Application.findAll();
+        let formateApplicationArr=[]
+
+        for (const application of applications) {
+            const job = await Job.findById(application.applicationData.jobId);
+            let formateApplication =Object.assign(application,{
+                job
+            })
+            formateApplicationArr.push(formateApplication)
+        }
+        res.render('admin/jobs/manage-job', { applications: formateApplicationArr });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function updateJobStatus(req, res, next) {
+    await Application.updateStatus(req.params.id, req.body.status)
+    try {   
+        res.redirect('/admin/jobs/status');
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
 
 async function getJobs(req, res, next) {
     try {
@@ -67,5 +97,7 @@ module.exports = {
     createNewJob: createNewJob,
     getUpdateJob: getUpdateJob,
     updateJob: updateJob,
-    deleteJob: deleteJob
+    deleteJob: deleteJob,
+    getJobStatus: getJobStatus,
+    updateJobStatus: updateJobStatus
 };

@@ -36,8 +36,26 @@ async function postApplication (req, res, next) {
     res.redirect('/application/status');
 }
 
-function getStatus(req, res) {
-    res.render('user/status/application-status');
+async function getStatus(req, res, next) {
+    try {
+        const applications = await Application.findAllforUser(res.locals.uid);
+
+        let formateApplicationArr=[]
+
+        for (const application of applications) {
+            const job = await Job.findById(application.applicationData.jobId);
+            let formateApplication =Object.assign(application,{
+                job
+            })
+            formateApplicationArr.push(formateApplication)
+        }       
+     
+
+        res.render('user/status/application-status', { applications: formateApplicationArr });
+    } catch (error) {
+        next(error);
+        return;
+    }
 }
 
 module.exports = {

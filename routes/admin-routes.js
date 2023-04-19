@@ -8,6 +8,10 @@ router.get('/jobs', adminController.getJobs);
 
 router.get('/jobs/new', adminController.getNewJob);
 
+router.get('/jobs/status', adminController.getJobStatus);
+
+router.post('/jobs/status/update/:id', adminController.updateJobStatus);
+
 router.post('/jobs', imageUploadMiddleware, adminController.createNewJob);
 
 router.get('/jobs/:id', adminController.getUpdateJob);

@@ -34,7 +34,11 @@
             <p><%= job.description %></p>
             <p><%= job.summary %></p>
             <% if (locals.isAuth) { %>
+                <% if (!isApply) { %>
                     <a class="btn" href="/application/apply/<%= job.id %>">Apply</a>
+                    <% } else { %> 
+                        <p id="Login-Apply">You are Applied</p>    
+                    <% } %>    
             <% } else { %>
                 <p id="Login-Apply">Login to Apply</p>
             <% } %>
